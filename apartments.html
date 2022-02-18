@@ -1,0 +1,51 @@
+<html>
+    <head>
+        <title> War Empathy </title>
+        <link rel="icon" href="pics/icon.png"/>
+        <link href='styles/styles.css' rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@500&family=Merriweather:wght@300&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <h1> Apartments </h1>
+        <hr>
+        <span class="background-gradient center">
+            <img src="pics/apartmentExterior.jpg" width=480/>
+        </span>
+        <p class="indent">You walk down what used to be a bustling part of town, now its ownership flips sides
+            depending if there's insurgents or Russian soldiers...
+        </p>
+        <h4>What do you do?</h4>
+        <ul>
+            <li> <a id="blackMarket" href="blackMarket.html"> Stay out of sight and check the apartments </a></li>
+            <li> <a href='#' onclick='die()'> Ask your old friend for help around the block </a></li>
+        </ul>
+        <hr>
+        <p>
+            <a id='exit' href='home.html'>Go back</a>
+        </p>
+        <hr>
+        <div class='center'>
+            <iframe src='inventory.html' id=inventory height=110 width=135></iframe>
+        </div>
+        <script>
+            inventory.src += location.search;
+            exit.href += location.search;
+            blackMarket.href += location.search;
+
+            function die(){
+                document.body.innerHTML = (
+                    `<h1>You Died</h1>
+                    <hr>
+                    <span class='center'>
+                        <img src="pics/sniper.jpg" width=480>
+                    </span>
+                    <p class='indent center'>You were shot walking down the street; Mistaken as an insurgent.</p>
+                    <a href="index.html"> <h4 class='center'> Game Over </h4> </a>
+                    <audio autoplay>
+                        <source src="pics/shot.mp3">
+                    </audio>`
+                );
+            }
+        </script>
+    </body>
+</html>

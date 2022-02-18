@@ -1,0 +1,62 @@
+<html>
+    <head>
+        <title> War Empathy </title>
+        <link rel='icon' href='pics/icon.png'/>
+        <link href='styles/styles.css' rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@500&family=Merriweather:wght@300&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <h1>Fight!</h1>
+        <hr>
+        <span class="center">
+            <img id='survivor' src='pics/survivor.gif' width="480">
+        </span>
+        
+        <p class='indent'id='battleText'>As you turn the corner, a man with a crazy look in his eyes shoots up in shock.<br>
+            <span class='italic bold'>He's charging you</span> 
+        </p>
+        <h4> What do you do? </h4>
+        <div class="center" id='options'>
+            <button id='fight' onclick='attack()'> Fight </button>
+            <a id='grocery' href='grocery.html'>
+                <button> Retreat </button>
+            </a>
+        </div>
+        <hr>
+        <div class='center'>
+            <iframe src='inventory.html' id=inventory height=110 width=135></iframe>
+        </div>        
+        
+        <script>
+            inventory.src += location.search;
+            grocery.href += location.search;
+
+            var queryString = new URLSearchParams(location.search);
+            var money = +queryString.get("Money");
+            var health = +queryString.get("Health");
+            var stamina = +queryString.get("Stamina");
+            var survivorHP = 3, survivorAP = 2;
+
+            function attack(){
+                survivorHP -= stamina;
+                if(survivorHP <= 0){
+                    survivor.src = 'pics/survivor.jpg'
+                    queryString.set('Money', money+20);
+                    queryString.set('Health', health);
+                    inventory.src = 'inventory.html?'+queryString;
+                    battleText.innerHTML = `You knock the man unconscious and find $20 in his pocket.`
+                    options.innerHTML = `<a href='grocery.html?${queryString}'><button>Back</button></a>`
+                }else{
+                    health-=survivorAP;
+                    queryString.set('Health', health);
+                    inventory.src = 'inventory.html?'+queryString;
+                    battleText.innerHTML = `<h4>You hit for ${stamina} damage, he has ${survivorHP} left.<br> You take ${survivorAP} damage.<h4>`;
+                }
+                if(health <= 0){
+                    battleText.innerHTML = `You died.`
+                    options.innerHTML = `<a href='index.html'><button>Game Over</button></a>`
+                }
+            }
+        </script>
+    </body>
+</html>

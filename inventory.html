@@ -1,0 +1,43 @@
+<html>
+
+    <head>
+        <title> War Empathy </title>
+        <link rel="icon" src="pics/icon.png"/>
+        <link href='styles/styles.css' rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@500&family=Merriweather:wght@300&display=swap" rel="stylesheet">
+    </head>
+
+    <body class='background-gradient'>
+        <div>
+            <span class="center bold">Inventory</span><hr>
+            <table>
+                <tr>
+                    <th> &#128176; </th> <!--emoji: Money-->
+                    <th> &#x1F96B; </th> <!--emoji: Canned Goods(Supplies)-->
+                    <th> &#128706; </th> <!--emoji: Passport-->
+                    <th> &#x2764; </th> <!--emoji:  Heart-->
+                    <th> &#128170; </th> <!--emoji: Arms-->
+                </tr>
+                <tr>
+                    <td id="Money">0</td>
+                    <td id="Supplies">0</td>
+                    <td id="Passport">0</td>
+                    <td id="Health">0</td>
+                    <td id="Stamina">0</td>
+                    <td class='hide-me' id="hasSupplies">0</td>
+                </tr>
+            </table>
+        </div>
+        
+        <script>
+            var queryString = new URLSearchParams(location.search);
+            Money.innerText = queryString.get("Money");
+            Supplies.innerText = queryString.get("Supplies");
+            Passport.innerText = queryString.get("Passport");
+            Health.innerText = queryString.get("Health");
+            Stamina.innerText = queryString.get("Stamina");
+            hasSupplies.innerText = queryString.get("hasSupplies");
+        </script>
+
+    </body>
+</html>

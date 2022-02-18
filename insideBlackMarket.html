@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <title> War Empathy </title>
+        <link rel='icon' href="pics/icon.png"/>
+        <link href='styles/styles.css' rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@500&family=Merriweather:wght@300&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <h1>Contraband Shop</h1>
+        <hr>
+        <span class="center">
+            <img src='pics/apartmentInterior.jpg' width=480/>
+        </span>
+        <h4 class="indent">"So you're trying to leave too? May be a little too late.  I'll be able to help...for the right price."</h4>
+        <div class="center">
+            <button onclick='passports()'> Passport &#128706; <br> <i> $15 </i></button>
+        </div>
+        <hr>
+        <div> <a id='exit' href='apartments.html'>Exit</a> </div>        
+        <hr>
+        <div class='center'>
+            <iframe src='inventory.html' id=inventory height=110 width=135></iframe>
+        </div>        
+        
+        <script>
+            inventory.src += location.search;
+            exit.href += location.search;
+
+            var queryString = new URLSearchParams(location.search);
+            var money = +queryString.get("Money");
+            var passport = +queryString.get("Passport");
+
+            function passports(){
+                if(money >= 15){
+                    queryString.set('Money', money-15);
+                    queryString.set('Passport', passport+1);
+                    location.search = queryString;
+                }
+            }
+        </script>
+    </body>
+</html>

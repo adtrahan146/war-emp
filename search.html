@@ -1,0 +1,61 @@
+<html>
+    <head>
+        <title> War Empathy </title>
+        <link rel='icon' href='pics/icon.png'/>
+        <link href='styles/styles.css' rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@500&family=Merriweather:wght@300&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <h1>Grocery</h1>
+        <hr>
+        <span class="center">
+            <img src='pics/cereal.jpg' width=480/>
+        </span>
+        <h4>
+            You found some cereal! This can be stretched a long way.
+        </h4>
+        <div id='buttonholder' class="center">
+            <!--<a href='grocery.html?Money=11&Supplies=5&Passport=0&Health=4&Stamina=2' onclick="giveSupplies()">-->
+                <div>
+                    <button onclick="giveSupplies()"> Supplies &#x1F96B; <br>+2</button>
+                </div>
+            <!--</a>-->
+        </div>
+        <hr>
+        <p>
+            <a id='exit' href='grocery.html'>Back</a>
+        </p>
+        <hr>
+        <div class='center'>
+            <iframe src='inventory.html' id=inventory height=110 width=135></iframe>
+        </div>
+
+        <script>
+            inventory.src += location.search;
+            exit.href += location.search;
+            onPageLoad();
+
+            function onPageLoad(){
+                var queryString = new URLSearchParams(location.search);
+                var hasSupplies = +queryString.get("hasSupplies");
+                if(hasSupplies==1){
+                    document.getElementById("buttonholder").className = "hide-me";
+                }
+            }
+
+            function giveSupplies(){
+                var queryString = new URLSearchParams(location.search);
+                var hasSupplies = +queryString.get("hasSupplies");
+
+                if(hasSupplies==0){
+                    var supplies = +queryString.get("Supplies");
+
+                    queryString.set('Supplies', supplies+2);
+                    queryString.set('hasSupplies', 1);
+                    location.search = queryString;
+                }
+                document.getElementById("buttonholder").className = "hide-me";
+            }
+        </script>
+    </body>
+</html>

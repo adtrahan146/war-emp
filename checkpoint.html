@@ -1,0 +1,63 @@
+<html>
+    <head>
+        <title> War Empathy </title>
+        <link rel='icon' href="pics/icon.png"/>
+        <link href='styles/styles.css' rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@500&family=Merriweather:wght@300&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <h1>Military Checkpoint Omega</h1>
+        <hr>
+        <span class="center">
+            <img src='pics/checkpoint.jpg' width=480/>
+        </span>
+        <p class='indent' id='checkpointtext'> You approach the military checkpoint leading out of Kiev towards the Black Sea </p>
+        <div id='win'>
+            <h4> What do you do? </h4>
+            <ul>
+                <li> <a id='leave' href='#' onclick='tryLeave()'> Try your chances at leaving <i>(need 2 passports to be able to leave with Spouse)</i></a></li>
+                <li> <a id='back' href='home.html'> Make up an excuse to the guard and go home </a></li>
+            </ul>
+        </div>
+        <hr>
+        <div class='center'>
+            <iframe src='inventory.html' id=inventory height=110 width=135></iframe>
+        </div>
+        
+        <script>
+            inventory.src += location.search;
+            back.href += location.search;
+            leave.href += location.search;
+            var queryString = new URLSearchParams(location.search);
+            var passport = +queryString.get("Passport");
+
+            function tryLeave(){
+                if(passport <= 0){
+                    checkpointtext.innerHTML = `You cannot leave the city without direct permission or with a Russian passport.`;
+                }else if(passport == 1){
+                    checkpointtext.innerHTML = `<div class='bold'>"...Everything seems to be in order for you, but what about <i>her</i>?"</div>`;
+                    /* back.innerHTML = `Leave the city without your spouse...<br><i><p>You "win"</p></i>`;
+                    back.href = 'index.html'; */
+                    win.innerHTML = (`
+                    <h4> What do you do? </h4>
+                    <ul>
+                        <li> <a id='leave' href='index.html'> Leave the city without your spouse...<br><p class='bold'>You "win"</p></a></li>
+                        <li> <a id='back' href='home.html'> Make up an excuse to the guard and go home </a></li>
+                    </ul>
+                    `);
+                    back.href += location.search;
+                }else if(passport >= 2){
+                    checkpointtext.innerHTML = `<h4>"...Everything seems to be in order...<br>Fine, go on ahead. Bus station is 1 km."</h4>`;
+                    win.innerHTML = (`
+                        <h2 class='center'> You made it out the city, but where to next? </h2>
+                        <p class='center merriweather-font'>
+                            <a href="index.html">
+                                <button> You Win! </button>
+                            </a>
+                        </p>
+                    `);
+                }
+            }
+        </script>
+    </body>
+</html>

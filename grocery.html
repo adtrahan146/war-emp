@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <title> War Empathy </title>
+        <link rel='icon' href='pics/icon.png' />
+        <link href='styles/styles.css' rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@500&family=Merriweather:wght@300&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <h1>Grocery</h1>
+        <hr>
+        <span class='center'>
+            <img src='pics/emtpygrocery.jpg' width=480 />
+        </span>
+
+        <h4>The store is looking as you expected... Where do you start?</h4>
+        <ul>
+            <li> <a id='left' href='fight.html'>Go left to check canned foods</a></li>
+            <li> <a id='right' href='search.html'>Go right to check dry foods and water</a></li>
+        </ul>
+        <hr>
+        <p>
+            <a id='exit' href='home.html'>Exit</a>
+        </p>
+        <hr>
+        <div class='center'>
+            <iframe src='inventory.html' id=inventory height=110 width=135></iframe>
+        </div>
+        
+        <script>
+            inventory.src += location.search;
+            exit.href += location.search;
+            left.href += location.search;
+            right.href += location.search;
+        </script>
+    </body>
+</html>

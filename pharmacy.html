@@ -1,0 +1,56 @@
+<html>
+    <head>
+        <title> War Empathy </title>
+        <link rel='icon' href='pics/icon.png'/>
+        <link href='styles/styles.css' rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@500&family=Merriweather:wght@300&display=swap" rel="stylesheet">
+    </head>
+
+    <body>
+        <h1>Pharmacy</h1>
+        <hr>
+        <span class="center">
+            <img src="pics/pharmacy.jpg" width=480/>
+        </span>
+
+        <p class='indent' id='text'>You enter the run down pharmacy, hoping to be able to get something to help with your headaches and chills.
+            <br>While scavenging for medicine, an old man cries out for help from the back.
+        </p>
+        
+        <h4 id='header4'>What do you do?</h4>
+        <hr>
+        <ul id='list'>
+            <li> <a href='#' onclick='helper()'> Go help the man </a></li>
+        </ul>
+        <hr>
+        <p>
+            <a id='exit' href='home.html'>Exit</a>
+        </p>
+        <div class='center'>
+            <iframe src='inventory.html' id=inventory height=110 width=135></iframe>
+        </div>
+
+        <script>
+            inventory.src += location.search;
+            exit.href += location.search;
+
+            var queryString = new URLSearchParams(location.search);
+            var stamina = +queryString.get('Stamina');
+
+            function helper(){
+                document.getElementById("text").innerHTML = (
+                    `<div class='indent'>You run to the back and see the old man on the floor stuck under a shelf... He must have been there for a few hours now.
+                    It's clear that he was in a fight... His face is messed up and he says that he was attacked.
+                    You move the shelf, but it's heavy.  You help the man up as he introduces himself. 
+                    <br><br><span class='indent'>He explains that some local gang came through a little while ago taking
+                    most of the medical supplies he still has. You can tell he wants to give you something in return for your deed.
+                    <br>You ask where to get supplies around here, and he says there's a dealer in the apartments.  He tells you the man is suspicious of everyone, so he has a password:</span>
+                    <br><span class='italic bold center'>Odessa</span></div>`
+                );
+
+                document.getElementById('list').innerHTML = "";
+                document.getElementById('header4').innerHTML = "";
+            }
+        </script>
+    </body>
+</html>

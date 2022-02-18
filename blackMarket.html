@@ -1,0 +1,47 @@
+<html>
+    <head>
+        <title> War Empathy </title>
+        <link rel='icon' href='pics/icon.png'/>
+        <link href='styles/styles.css' rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@500&family=Merriweather:wght@300&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <h1>Contraband Dealer's Door</h1>
+        <hr>
+        <span class="center">
+            <img id='image' src="pics/door.jpg" width=480/>
+        </span>
+        <p class="indent " id='textbox'>You hear someone shuffle to the door... 
+            <span class='bold'>"What do you want?"</span>  
+            You reply, <span class='bold'>"anything helps please,"</span>
+            he scoffs and asks for the password:
+        </p>
+        <hr>
+        <div class='center' id='passwordBox'>
+            <label class="bold">Password: </label>
+            <input type="text" id="inputText">
+            <button id='submit-button' onclick='password()'>Submit</button>
+        </div>
+        <hr>
+        <div> <a id='exit' href='apartments.html'>Exit</a> </div>
+        <hr>
+        <div class='center'>
+            <iframe src='inventory.html' id=inventory height=110 width=135></iframe>
+        </div>
+        <script>
+            inventory.src += location.search;
+            exit.href += location.search;
+
+            function password(){
+                if(inputText.value == 'Odessa'){
+                    parent.location = 'insideBlackMarket.html'+location.search;
+                }else{
+                    document.getElementById("textbox").innerHTML = (
+                        `Nice try... Come back when I know I can trust you.`
+                    );
+                    document.getElementById("passwordBox").innerHTML = "";
+                }
+            }
+        </script>
+    </body>
+</html>

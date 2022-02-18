@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <title> War Empathy </title>
+        <link rel="icon" href = "pics/icon.png"/>
+        <link href='styles/styles.css' rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@500&family=Merriweather:wght@300&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <h1>Home</h1>
+        <hr>
+        <span class="center">
+            <img src="pics/yourHouse.jpg" width=480/>
+        </span>
+        
+        <h4 class='merriweather-font'>Where do you want to go?</h4>
+        <ul>
+            <li> <a id='pharmacy' href='pharmacy.html'> Pharmacy </a></li>
+            <li> <a id='grocery' href='grocery.html'> Grocery </a></li>
+            <li> <a id='apartments' href='apartments.html'> Apartments </a></li>
+            <li> <a id='leave' href='checkpoint.html'> Attempt to Leave City</a></li>
+        </ul>
+        <hr>
+        <div class='center'>
+            <iframe src='inventory.html' id=inventory height=110 width=135></iframe>
+        </div>
+
+        <script>
+            inventory.src += location.search;
+            pharmacy.href += location.search;
+            grocery.href += location.search;
+            apartments.href += location.search;
+            leave.href += location.search;
+        </script>
+    </body>
+</html>

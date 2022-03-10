@@ -11,7 +11,7 @@
         <span class="center">
             <img src='pics/checkpoint.jpg' width=480/>
         </span>
-        <p class='indent' id='checkpointtext'> You approach the military checkpoint leading out of Kiev towards the Black Sea </p>
+        <p class='indent' id='checkpointtext'> You approach the military checkpoint leading out of Rharkov towards the Rott Sea </p>
         <div id='win'>
             <h4> What do you do? </h4>
             <ul>
@@ -33,7 +33,7 @@
 
             function tryLeave(){
                 if(passport <= 0){
-                    checkpointtext.innerHTML = `You cannot leave the city without direct permission or with a Russian passport.`;
+                    checkpointtext.innerHTML = `You cannot leave the city without direct permission or with a PRP passport.`;
                 }else if(passport == 1){
                     checkpointtext.innerHTML = `<div class='bold'>"...Everything seems to be in order for you, but what about <i>her</i>?"</div>`;
                     /* back.innerHTML = `Leave the city without your spouse...<br><i><p>You "win"</p></i>`;
